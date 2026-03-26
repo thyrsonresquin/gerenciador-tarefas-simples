@@ -1,6 +1,6 @@
 # função para adicionar tarefa, recebe a lista de tarefas e o nome da tarefa a ser adicionada
 def adicionar_tarefa(tarefas, nome_tarefa):
-    #criado variável tarefa para armazenar o nome da tarefa e seu status de conclusão
+    # criado variável tarefa para armazenar o nome da tarefa e seu status de conclusão
     tarefa = {"tarefa": nome_tarefa, "concluida": False}
     tarefas.append(tarefa)
     print(f'Tarefa {nome_tarefa} adicionada com sucesso!')
@@ -17,6 +17,14 @@ def verificar_tarefas(tarefas):
             # criado variável nome_tarefa para armazenar o nome da tarefa e exibir na listagem
             nome_tarefa = tarefa["tarefa"]
             print(f"{idc}. [{status}] - {nome_tarefa}")
+
+def atualizar_tarefa(tarefas, idc, novo_nome):
+    if 0 < idc <= len(tarefas):
+        # atualiza o nome da tarefa com base no ID fornecido, subtraindo 1 para acessar o índice correto na lista
+        tarefas[idc - 1]["tarefa"] = novo_nome
+        print(f"Tarefa {idc} atualizada para: {novo_nome}")
+    else:
+        print("ID da tarefa inválido.")
 
 tarefas = []
 while True:
@@ -35,6 +43,16 @@ while True:
         adicionar_tarefa(tarefas, nome_tarefa)
     elif escolha == "2":
         verificar_tarefas(tarefas)
+    elif escolha == "3":
+        print("Opção de atualizar tarefa selecionada.")
+        idc = int(input("Digite o ID da tarefa a ser atualizada: "))
+        novo_nome = input("Digite o novo nome da tarefa: ")
+        atualizar_tarefa(tarefas, idc, novo_nome)
+    elif escolha == "4":
+        print("Opção de marcar tarefa como concluída selecionada.")
+    elif escolha == "5":
+        print("Opção de excluir tarefa selecionada.")
+
     elif escolha == "6":
         print("Saindo do gerenciador de tarefas. Até mais!")
         break
