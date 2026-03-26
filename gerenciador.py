@@ -4,6 +4,15 @@ def adicionar_tarefa(tarefas, nome_tarefa):
     print(f'Tarefa {nome_tarefa} adicionada com sucesso!')
     return tarefas
 
+def verificar_tarefas(tarefas):
+    if not tarefas:
+        print("\nNenhuma tarefa cadastrada.")
+    else:
+        print("Lista de Tarefas:")
+        for idc, tarefa in enumerate(tarefas, start=1):
+            status = "✔" if tarefa["concluida"] else "PENDENTE"
+            print(f"{idc}. {tarefa['tarefa']} - {status}")
+
 tarefas = []
 while True:
     print("\nMenu do gerenciador de Lista de Tarefas:")
@@ -19,6 +28,8 @@ while True:
     if escolha == "1":
         nome_tarefa = input("Digite o nome da tarefa: ")
         adicionar_tarefa(tarefas, nome_tarefa)
+    elif escolha == "2":
+        verificar_tarefas(tarefas)
     elif escolha == "6":
         print("Saindo do gerenciador de tarefas. Até mais!")
         break
