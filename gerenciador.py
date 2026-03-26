@@ -1,3 +1,4 @@
+# função para adicionar tarefa, recebe a lista de tarefas e o nome da tarefa a ser adicionada
 def adicionar_tarefa(tarefas, nome_tarefa):
     #criado variável tarefa para armazenar o nome da tarefa e seu status de conclusão
     tarefa = {"tarefa": nome_tarefa, "concluida": False}
@@ -5,6 +6,7 @@ def adicionar_tarefa(tarefas, nome_tarefa):
     print(f'Tarefa {nome_tarefa} adicionada com sucesso!')
     return tarefas
 
+# função para listar as tarefas, recebe a lista de tarefas e exibe cada tarefa com seu status de conclusão
 def verificar_tarefas(tarefas):
     if not tarefas:
         print("\nNenhuma tarefa cadastrada.")
