@@ -1,4 +1,5 @@
 def adicionar_tarefa(tarefas, nome_tarefa):
+    #criado variável tarefa para armazenar o nome da tarefa e seu status de conclusão
     tarefa = {"tarefa": nome_tarefa, "concluida": False}
     tarefas.append(tarefa)
     print(f'Tarefa {nome_tarefa} adicionada com sucesso!')
@@ -10,8 +11,10 @@ def verificar_tarefas(tarefas):
     else:
         print("Lista de Tarefas:")
         for idc, tarefa in enumerate(tarefas, start=1):
-            status = "✔" if tarefa["concluida"] else "PENDENTE"
-            print(f"{idc}. {tarefa['tarefa']} - {status}")
+            status = "✔" if tarefa["concluida"] else "•"
+            # criado variável nome_tarefa para armazenar o nome da tarefa e exibir na listagem
+            nome_tarefa = tarefa["tarefa"]
+            print(f"{idc}. [{status}] - {nome_tarefa}")
 
 tarefas = []
 while True:
