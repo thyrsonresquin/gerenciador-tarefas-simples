@@ -44,6 +44,7 @@ while True:
     elif escolha == "2":
         verificar_tarefas(tarefas)
     elif escolha == "3":
+        verificar_tarefas(tarefas)
         print("Opção de atualizar tarefa selecionada.")
         idc = int(input("Digite o ID da tarefa a ser atualizada: "))
         novo_nome = input("Digite o novo nome da tarefa: ")
