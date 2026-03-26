@@ -19,6 +19,7 @@ def verificar_tarefas(tarefas):
             print(f"{idc}. [{status}] - {nome_tarefa}")
 
 def atualizar_tarefa(tarefas, idc, novo_nome):
+    # verifica se o ID da tarefa é válido, ou seja, se está dentro do intervalo da lista de tarefas
     if 0 < idc <= len(tarefas):
         # atualiza o nome da tarefa com base no ID fornecido, subtraindo 1 para acessar o índice correto na lista
         tarefas[idc - 1]["tarefa"] = novo_nome
