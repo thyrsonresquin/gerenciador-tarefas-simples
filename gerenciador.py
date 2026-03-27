@@ -13,17 +13,26 @@ def verificar_tarefas(tarefas):
     else:
         print("Lista de Tarefas:")
         for idc, tarefa in enumerate(tarefas, start=1):
-            status = "✔" if tarefa["concluida"] else "•"
+            status = "✔" if tarefa["concluida"] else " "
             # criado variável nome_tarefa para armazenar o nome da tarefa e exibir na listagem
             nome_tarefa = tarefa["tarefa"]
             print(f"{idc}. [{status}] - {nome_tarefa}")
 
+# função para atualizar o nome de uma tarefa, recebe a lista de tarefas, o ID da tarefa a ser atualizada e o novo nome da tarefa
 def atualizar_tarefa(tarefas, idc, novo_nome):
     # verifica se o ID da tarefa é válido, ou seja, se está dentro do intervalo da lista de tarefas
     if 0 < idc <= len(tarefas):
         # atualiza o nome da tarefa com base no ID fornecido, subtraindo 1 para acessar o índice correto na lista
         tarefas[idc - 1]["tarefa"] = novo_nome
         print(f"Tarefa {idc} atualizada para: {novo_nome}")
+    else:
+        print("ID da tarefa inválido.")
+
+# função para marcar uma tarefa como concluída, recebe a lista de tarefas e o ID da tarefa a ser marcada como concluída
+def completar_tarefa(tarefas, idc):
+    if 0 < idc <= len(tarefas):
+        tarefas[idc - 1]["concluida"] = True
+        print(f"Tarefa {idc} marcada como concluída.")
     else:
         print("ID da tarefa inválido.")
 
@@ -51,8 +60,12 @@ while True:
         novo_nome = input("Digite o novo nome da tarefa: ")
         atualizar_tarefa(tarefas, idc, novo_nome)
     elif escolha == "4":
+        verificar_tarefas(tarefas)
         print("Opção de marcar tarefa como concluída selecionada.")
+        idc = int(input("Digite o ID da tarefa a ser marcada como concluída: "))
+        completar_tarefa(tarefas, idc)
     elif escolha == "5":
+        verificar_tarefas(tarefas)
         print("Opção de excluir tarefa selecionada.")
 
     elif escolha == "6":
