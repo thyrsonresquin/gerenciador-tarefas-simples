@@ -36,6 +36,14 @@ def completar_tarefa(tarefas, idc):
     else:
         print("ID da tarefa inválido.")
 
+# função para excluir uma tarefa, recebe a lista de tarefas e o ID da tarefa a ser excluída
+def excluir_tarefa(tarefas, idc):
+    if 0 < idc <= len(tarefas):
+        tarefa_excluida = tarefas.pop(idc - 1)
+        print(f"Tarefa {idc} excluída: {tarefa_excluida['tarefa']}")
+    else:
+        print("ID da tarefa inválido.")
+
 tarefas = []
 while True:
     print("\nMenu do gerenciador de Lista de Tarefas:")
@@ -67,7 +75,8 @@ while True:
     elif escolha == "5":
         verificar_tarefas(tarefas)
         print("Opção de excluir tarefa selecionada.")
-
+        idc = int(input("Digite o ID da tarefa a ser excluída: "))
+        excluir_tarefa(tarefas, idc)
     elif escolha == "6":
         print("Saindo do gerenciador de tarefas. Até mais!")
         break
